@@ -1,0 +1,19 @@
+.ButtonsContainer {
+  height: 50px;
+  padding: 20px 0;
+  text-align: center;
+  display: flex;
+  justify-content: space-around;
+  max-width: 900px;
+  margin: auto;
+
+  button {
+    height: 50px;
+    outline: 0;
+    border: 0;
+    border-radius: 0;
+    font-size: 14px;
+    
+  }
+
+}

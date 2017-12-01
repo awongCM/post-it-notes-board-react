@@ -1,9 +1,15 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 
+import './ButtonsContainer.scss';
+
 const ButtonsContainer = (props) => {
   return (
-    <h1>ButtonsContainer</h1>
+    <div className="ButtonsContainer">
+      <button>Add New Notes</button>
+      <button>Add New Notes</button>
+      <button>Add New Notes</button>
+    </div>
   );
 };
 
