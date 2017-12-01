@@ -9,3 +9,9 @@ button {
   appearance: none;
   -webkit-appearance: none;
 }
+
+ul {
+  li {
+    list-style-type: none;
+  }
+}
