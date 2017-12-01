@@ -1,9 +1,12 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
+import './App.scss';
 
 const App = ({name}) => {
   return (
-    <h1>Hello World, {name}</h1>
+    <div className="App">
+      <h1>Hello World, {name}</h1>
+    </div>
   );
 };
 
