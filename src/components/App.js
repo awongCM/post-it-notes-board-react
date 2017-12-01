@@ -2,10 +2,14 @@ import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 import './App.scss';
 
+import ButtonsContainer from "./ButtonsContainer";
+import NotesContainer from "./NotesContainer";
+
 const App = ({name}) => {
   return (
     <div className="App">
-      <h1>Hello World, {name}</h1>
+      <ButtonsContainer></ButtonsContainer>
+      <NotesContainer></NotesContainer>
     </div>
   );
 };
