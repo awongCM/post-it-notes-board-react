@@ -6,15 +6,15 @@ import './ButtonsContainer.scss';
 const ButtonsContainer = (props) => {
   return (
     <div className="ButtonsContainer">
-      <button onClick={handleClick}>Add New Notes1</button>
-      <button onClick={handleClick}>Add New Notes2</button>
-      <button onClick={handleClick}>Add New Notes3</button>
+      <button onClick={addNewNote}>Add New Notes1</button>
+      <button onClick={addNewNote}>Add New Notes2</button>
+      <button onClick={addNewNote}>Add New Notes3</button>
     </div>
   );
 };
 
-const handleClick = e => (
-  console.log("Button clicked", e.target)
+const addNewNote = e => (
+  console.log("Add new Note", e.target)
 )
 
 export default ButtonsContainer;
