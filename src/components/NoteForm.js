@@ -44,7 +44,8 @@ class NoteForm extends Component {
                 type="text" 
                 name="title" 
                 placeholder="Enter your title"
-                value={this.state.title} onChange={this.handleInput.bind(this)} />
+                value={this.state.title} onChange={this.handleInput.bind(this)} 
+                ref={this.props.titleRef} />
           <textarea className="textarea" 
                     name="content" 
                     placeholder="Enter your content"

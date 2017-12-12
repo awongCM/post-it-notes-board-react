@@ -4,17 +4,27 @@ import axios from 'axios';
 
 import './Note.scss';
 
-const Note = ({note}) => {
-  const styles = {
-    backgroundColor: note.color
-  };
+class Note extends Component {
+  constructor(props) {
+    super(props);
+  }
+  handleClick() {
+    this.props.onClick(this.props.note.id);
+  }
+  render() {
+    const {note} = this.props; 
 
-  return (
-    <div className="Note" style={styles}>
-      <h4>{note.title}</h4>
-      <p>{note.content}</p>
-    </div>
-  )
+    const styles = {
+      backgroundColor: note.color
+    };
+
+    return(
+      <div className="Note" style={styles} onClick={this.handleClick.bind(this)}>
+        <h4>{note.title}</h4>
+        <p>{note.content}</p>
+      </div>
+    )
+  }
 }
 
 export default Note;

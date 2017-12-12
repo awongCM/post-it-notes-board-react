@@ -52,6 +52,9 @@ class NotesContainer extends Component {
     });
     this.setState({notes: notes}, () => console.log("All changes saved"));
   }
+  enableEditing(id) {
+    this.setState({editing_note_id: id}, () => this.title.focus());
+  }
   render() {
     return (
       <div className="NotesContainer">
@@ -60,9 +63,12 @@ class NotesContainer extends Component {
           {
             this.state.notes.map( (note) => {
               if (this.state.editing_note_id === note.id) {
-                return (<NoteForm key={note.id} note={note} updateNote={this.updateNote.bind(this)}/>)
+                return (<NoteForm key={note.id} 
+                        note={note} 
+                        titleRef= {input => this.title = input}
+                        updateNote={this.updateNote.bind(this)}/>)
               } else {
-                return (<Note key={note.id} note={note} />)
+                return (<Note key={note.id} note={note} onClick={this.enableEditing.bind(this)} />)
               }
             })
           }
