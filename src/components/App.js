@@ -5,7 +5,7 @@ import './App.scss';
 import ButtonsContainer from "./ButtonsContainer";
 import NotesContainer from "./NotesContainer";
 
-const App = ({name}) => {
+const App = () => {
   return (
     <div className="App">
       <ButtonsContainer></ButtonsContainer>
@@ -14,8 +14,5 @@ const App = ({name}) => {
   );
 };
 
-App.propTypes = {
-  name: PropTypes.string
-}
 
 export default App;
