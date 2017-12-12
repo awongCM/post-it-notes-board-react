@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import ReactDOM from 'react-dom';
 import axios from 'axios';
 
+import Note from './Note';
 class NotesContainer extends Component {
   constructor(props) {
     super(props);
@@ -24,13 +25,9 @@ class NotesContainer extends Component {
       <div className="NotesContainer">
         <h1>NotesContainer</h1>
           {
-            this.state.notes.map( (note) => {
+            this.state.notes.map( (note, index) => {
               return(
-                <div>
-                  <h4>{note.title}</h4>
-                  <p>{note.content}</p>
-                  <p>{note.color}</p>
-                </div>
+                <Note key={index} note={note}></Note>
               )
             })
           }
