@@ -25,9 +25,9 @@ class NotesContainer extends Component {
       <div className="NotesContainer">
         <h1>NotesContainer</h1>
           {
-            this.state.notes.map( (note, index) => {
+            this.state.notes.map( (note) => {
               return(
-                <Note key={index} note={note}></Note>
+                <Note key={note.id} note={note}></Note>
               )
             })
           }
