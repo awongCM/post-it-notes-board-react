@@ -1,21 +1,28 @@
-import React from 'react';
+import React, { Component } from 'react';
 import ReactDOM from 'react-dom';
 
 import './ButtonsContainer.scss';
 
-const ButtonsContainer = (props) => {
-  return (
-    <div className="ButtonsContainer">
-      <button onClick={addNewNote}>Add New Notes1</button>
-      <button onClick={addNewNote}>Add New Notes2</button>
-      <button onClick={addNewNote}>Add New Notes3</button>
-    </div>
-  );
-};
+class ButtonsContainer extends Component {
+  constructor(props){
+    super(props);
+  }
 
-const addNewNote = e => (
-  console.log("Add new Note", e.target)
-)
+  addNewNote(e) {
+    const note_color = e.target.attributes.notetype.value;
+    this.props.addNewNote(note_color);
+  }
+
+  render() {
+    return(
+      <div className="ButtonsContainer">
+        <button onClick={this.addNewNote.bind(this)} notetype="yellow" >Add Yellow Note</button>
+        <button onClick={this.addNewNote.bind(this)} notetype="blue">Add Blue Note</button>
+        <button onClick={this.addNewNote.bind(this)} notetype="red">Add Red Note</button>
+      </div>
+    )
+  }
+}
 
 export default ButtonsContainer;
 

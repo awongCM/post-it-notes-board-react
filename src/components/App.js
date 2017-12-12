@@ -8,11 +8,9 @@ import NotesContainer from "./NotesContainer";
 const App = () => {
   return (
     <div className="App">
-      <ButtonsContainer></ButtonsContainer>
       <NotesContainer></NotesContainer>
     </div>
   );
 };
-
 
 export default App;
