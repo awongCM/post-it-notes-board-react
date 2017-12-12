@@ -1,0 +1,10 @@
+.Note {
+  height: 300px;
+  width: 300px;
+  margin: 2px 0;
+  position: relative;
+  display: inline-block;
+  cursor: -webkit-grab;
+  box-shadow: 5px 5px 15px 0 rgba(0, 0, 0, .2);
+  overflow: hidden;
+}
