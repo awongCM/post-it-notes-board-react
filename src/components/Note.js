@@ -11,6 +11,9 @@ class Note extends Component {
   handleClick() {
     this.props.onClick(this.props.note.id);
   }
+  handleDelete() {
+    this.props.onDelete(this.props.note.id);
+  }
   render() {
     const {note} = this.props; 
 
@@ -20,6 +23,7 @@ class Note extends Component {
 
     return(
       <div className="Note" style={styles} onClick={this.handleClick.bind(this)}>
+        <div className="tile"><span className="deleteBtn" onClick={this.handleDelete.bind(this)}>X</span></div>
         <h4>{note.title}</h4>
         <p>{note.content}</p>
       </div>

@@ -25,8 +25,6 @@ class NotesContainer extends Component {
       });
   }
   addNewNote(note_color) {
-    // console.log(note_color);
-
     axios.post('http://api.dev.local:5000/v1/notes',
       {
         note: {
@@ -42,6 +40,15 @@ class NotesContainer extends Component {
         $splice: [[0, 0, res.data ]]
       });
       this.setState({notes: notes, editing_note_id: res.data.id});
+    })
+    .catch(err => console.log(err));
+  }
+  deleteNote(id) {
+    axios.delete(`http://api.dev.local:5000/v1/notes/${id}`)
+    .then(res => {
+      const note_index = this.state.notes.findIndex( current_note => current_note.id === id);
+      const notes = update(this.state.notes, {$splice: [[note_index, 1]]});
+      this.setState({notes: notes});
     })
     .catch(err => console.log(err));
   }
@@ -68,7 +75,10 @@ class NotesContainer extends Component {
                         titleRef= {input => this.title = input}
                         updateNote={this.updateNote.bind(this)}/>)
               } else {
-                return (<Note key={note.id} note={note} onClick={this.enableEditing.bind(this)} />)
+                return (<Note key={note.id} 
+                        note={note} 
+                        onClick={this.enableEditing.bind(this)} 
+                        onDelete={this.deleteNote.bind(this)}/>)
               }
             })
           }

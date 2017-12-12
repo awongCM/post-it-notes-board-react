@@ -4,9 +4,30 @@
   margin: 2px 4px;
   position: relative;
   display: inline-block;
-  cursor: -webkit-grab;
+  // cursor: -webkit-grab;
   box-shadow: 5px 5px 15px 0 rgba(0, 0, 0, .2);
   overflow: hidden;
+
+  .tile {
+    position: absolute;
+    right: 5px;
+    top: 5px;
+    width: 20px;
+    height: 20px;
+
+    .deleteBtn {
+      color: darkgray;
+      cursor: pointer;
+      font-size: 20px;
+      visibility: hidden;
+    }
+
+    &:hover {
+      .deleteBtn {
+        visibility: visible;
+      }
+    }
+  }
 
   // wraps form component
 
