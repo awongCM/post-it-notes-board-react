@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import ReactDOM from 'react-dom';
 import axios from 'axios';
+import PropTypes from 'prop-types';
 
 import './Note.scss';
 
@@ -56,6 +57,12 @@ class NoteForm extends Component {
     );
   }
 
+}
+
+NoteForm.propTypes = {
+  updateNote: PropTypes.func.isRequired,
+  note: PropTypes.object.isRequired,
+  titleRef: PropTypes.func.isRequired
 }
 
 export default NoteForm;
