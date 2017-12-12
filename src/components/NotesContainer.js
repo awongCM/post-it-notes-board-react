@@ -6,6 +6,8 @@ import update from 'immutability-helper';
 import ButtonsContainer from "./ButtonsContainer";
 import Note from './Note';
 import NoteForm from './NoteForm';
+import './NotesContainer.scss';
+
 class NotesContainer extends Component {
   constructor(props) {
     super(props);
@@ -66,7 +68,7 @@ class NotesContainer extends Component {
     return (
       <div className="NotesContainer">
         <ButtonsContainer addNewNote={this.addNewNote.bind(this)}></ButtonsContainer>
-        <h1>NotesContainer</h1>
+        <h1 className="heading">Post-it-notes Board</h1>
           {
             this.state.notes.map( (note) => {
               if (this.state.editing_note_id === note.id) {

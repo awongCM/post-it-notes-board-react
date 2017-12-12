@@ -17,7 +17,7 @@ class ButtonsContainer extends Component {
     return(
       <div className="ButtonsContainer">
         <button onClick={this.addNewNote.bind(this)} notetype="yellow" >Add Yellow Note</button>
-        <button onClick={this.addNewNote.bind(this)} notetype="blue">Add Blue Note</button>
+        <button onClick={this.addNewNote.bind(this)} notetype="orange">Add Orange Note</button>
         <button onClick={this.addNewNote.bind(this)} notetype="red">Add Red Note</button>
       </div>
     )
