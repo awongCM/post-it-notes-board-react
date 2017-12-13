@@ -7,6 +7,15 @@
   // cursor: -webkit-grab;
   box-shadow: 5px 5px 15px 0 rgba(0, 0, 0, .2);
   overflow: hidden;
+  font-family: "Shadows Into Light", Arial;
+
+  h4 {
+    font-size: 36px;
+    margin: 15px auto;
+  }
+  p {
+    font-size: 20px;
+  }
 
   .tile {
     position: absolute;
