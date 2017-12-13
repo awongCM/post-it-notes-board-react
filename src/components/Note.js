@@ -23,10 +23,10 @@ class Note extends Component {
     };
 
     return(
-      <div className="Note" style={styles} onClick={this.handleClick.bind(this)}>
+      <div className="Note" style={styles}>
         <div className="tile"><span className="deleteBtn" onClick={this.handleDelete.bind(this)}>X</span></div>
-        <h4>{note.title}</h4>
-        <p>{note.content}</p>
+        <h4 onClick={this.handleClick.bind(this)}>{note.title}</h4>
+        <p onClick={this.handleClick.bind(this)}>{note.content}</p>
       </div>
     )
   }

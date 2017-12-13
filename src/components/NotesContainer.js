@@ -65,6 +65,12 @@ class NotesContainer extends Component {
   enableEditing(id) {
     this.setState({editing_note_id: id}, () => this.title.focus());
   }
+  resetEditing(e) {
+    //prevent from re-rendering multiple times if editing id is already reset
+    if (e.target.className === "NotesContainer" && this.state.editing_note_id !== null) {
+      this.setState({editing_note_id: null});
+    }
+  }
   randomPosition() {
     // we want our post-it notes to be visble within the desktop viewing browser window
     // hence we need to give some amount of displacement of their respective positions
@@ -104,7 +110,7 @@ class NotesContainer extends Component {
   }
   render() {
     return (
-      <div className="NotesContainer">
+      <div className="NotesContainer" onClick={this.resetEditing.bind(this)}>
         <ButtonsContainer addNewNote={this.addNewNote.bind(this)}></ButtonsContainer>
         <h1 className="heading">Post-it-notes Board</h1>
         {this.state.notes.map(this.eachItemOf.bind(this))}
