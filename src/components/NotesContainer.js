@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import ReactDOM from 'react-dom';
 import axios from 'axios';
 import update from 'immutability-helper';
+import Draggable from 'react-draggable';
 
 import ButtonsContainer from "./ButtonsContainer";
 import Note from './Note';
@@ -64,26 +65,49 @@ class NotesContainer extends Component {
   enableEditing(id) {
     this.setState({editing_note_id: id}, () => this.title.focus());
   }
+  randomPosition() {
+    // we want our post-it notes to be visble within the desktop viewing browser window
+    // hence we need to give some amount of displacement of their respective positions
+    // depending on their respective dimension sizes
+    let rand_x = Math.ceil(Math.random() * (window.innerWidth - 300)),
+        rand_y = Math.ceil(Math.random() * (window.innerHeight - 300));
+
+    return {
+      x: rand_x, 
+      y: rand_y
+    };
+  }
+  renderNoteForm(note) {
+    return(
+      <NoteForm key={note.id} 
+          note={note} 
+          titleRef= {input => this.title = input}
+          updateNote={this.updateNote.bind(this)}/>);
+  }
+  renderNote(note) {
+    return(
+      <Note key={note.id} 
+          note={note} 
+          onClick={this.enableEditing.bind(this)} 
+          onDelete={this.deleteNote.bind(this)}/>);
+  }
+  eachItemOf(note) {
+    const newPosition = this.randomPosition();
+
+    return( 
+    <Draggable key={note.id} enableUserSelectHack={false}  defaultPosition={newPosition}>
+     {/* Create an actual DOM wrapper for draggable components  */}
+      <div>
+        {(this.state.editing_note_id === note.id) ? this.renderNoteForm(note) : this.renderNote(note)}
+      </div>
+    </Draggable>);
+  }
   render() {
     return (
       <div className="NotesContainer">
         <ButtonsContainer addNewNote={this.addNewNote.bind(this)}></ButtonsContainer>
         <h1 className="heading">Post-it-notes Board</h1>
-          {
-            this.state.notes.map( (note) => {
-              if (this.state.editing_note_id === note.id) {
-                return (<NoteForm key={note.id} 
-                        note={note} 
-                        titleRef= {input => this.title = input}
-                        updateNote={this.updateNote.bind(this)}/>)
-              } else {
-                return (<Note key={note.id} 
-                        note={note} 
-                        onClick={this.enableEditing.bind(this)} 
-                        onDelete={this.deleteNote.bind(this)}/>)
-              }
-            })
-          }
+        {this.state.notes.map(this.eachItemOf.bind(this))}
       </div>
     );
   }
