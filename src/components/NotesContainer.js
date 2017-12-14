@@ -1,9 +1,9 @@
 import React, { Component } from 'react';
 import ReactDOM from 'react-dom';
-import axios from 'axios';
 import update from 'immutability-helper';
 import Draggable from 'react-draggable';
 
+import NotesBoardAPI from '../service/api';
 import ButtonsContainer from "./ButtonsContainer";
 import Note from './Note';
 import NoteForm from './NoteForm';
@@ -14,29 +14,30 @@ class NotesContainer extends Component {
     super(props);
     this.state = {
       notes: [],
-      editing_note_id:null
+      editing_note_id: null
     };
   }
-  componentDidMount(){
-    axios.get('http://api.dev.local:5000/v1/notes')
-      .then( res => {
-        console.log(res);
-        this.setState({notes: res.data});
-      })
-      .catch(err => {
-        console.log(err);
-      });
+  componentDidMount() {
+
+    NotesBoardAPI.getRequest()
+    .then( res => {
+      console.log(res);
+      this.setState({notes: res.data});
+    })
+    .catch(err => {
+      console.log(err);
+    });
   }
   addNewNote(note_color) {
-    axios.post('http://api.dev.local:5000/v1/notes',
-      {
+    const data = {
         note: {
           title: '',
           content: '',
           color: note_color
         }
-      }  
-    )
+    };
+    
+    NotesBoardAPI.postRequest(data)
     .then(res => {
       console.log(res);
       const notes = update(this.state.notes, {
@@ -45,9 +46,10 @@ class NotesContainer extends Component {
       this.setState({notes: notes, editing_note_id: res.data.id});
     })
     .catch(err => console.log(err));
+
   }
   deleteNote(id) {
-    axios.delete(`http://api.dev.local:5000/v1/notes/${id}`)
+    NotesBoardAPI.deleteRequest(id)
     .then(res => {
       const note_index = this.state.notes.findIndex( current_note => current_note.id === id);
       const notes = update(this.state.notes, {$splice: [[note_index, 1]]});

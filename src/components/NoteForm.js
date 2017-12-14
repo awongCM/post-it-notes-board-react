@@ -1,8 +1,8 @@
 import React, { Component } from 'react';
 import ReactDOM from 'react-dom';
-import axios from 'axios';
 import PropTypes from 'prop-types';
 
+import NotesBoardAPI from '../service/api';
 import './Note.scss';
 
 class NoteForm extends Component {
@@ -17,16 +17,14 @@ class NoteForm extends Component {
     this.setState({ [e.target.name]: e.target.value });
   }
   handleBlur() {
-    const note = {
-      title: this.state.title,
-      content: this.state.content
-    };
+    const data = {
+              note : {
+                title: this.state.title,
+                content: this.state.content
+              }
+          }, id = this.props.note.id;
 
-    axios.put(`http://api.dev.local:5000/v1/notes/${this.props.note.id}`,
-      {
-        note: note
-      }
-    )
+    NotesBoardAPI.putRequest(data, id)
     .then(res => {
       console.log(res);
       this.props.updateNote(res.data);
