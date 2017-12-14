@@ -1,6 +1,10 @@
 //NotesBoard API Server
 import axios from 'axios';
 
+//dev
+// export const BASE_URL_API = 'http://api.dev.local:5000/v1/notes';
+
+//prod
 export const BASE_URL_API = 'https://post-it-notes-board-api.herokuapp.com/v1/notes';
 
 export default class NotesBoardAPI {
