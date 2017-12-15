@@ -43,4 +43,4 @@ All credit goes to this wonderful [React/Rails](https://www.sitepoint.com/react-
 
 ## License
 
-This project is licensed under the MIT License - see the LICENSE.md file for details
+This project is licensed under the MIT License - see the [LICENSE.md](https://github.com/awongCM/post-it-notes-board-react/blob/master/LICENSE) file for details
