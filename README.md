@@ -27,7 +27,10 @@ I thought it would be an interesting and fun project to come up with my own user
 
 Have fun!
 
-##Demo
+## Demo
+
+[logo]: https://github.com/awongCM/post-it-notes-board-react/blob/master/demo-img.png
+![alt text][logo]
 
 [Demo link](https://post-it-notes-board-react.herokuapp.com/)
 
