@@ -25,6 +25,11 @@ Pretty much like every user story board that any agile team uses and works with,
 
 I thought it would be an interesting and fun project to come up with my own user story board app that any person can create and attach post it notes on the wallboard.  You can even drag them around the board too!
 
+## Instructions
+* You can add post-it notes by clicking one of the three buttons at the top.
+* Click on any one of the existing/new post-it notes to edit notes content, then anywhere on the board to save.
+* You can delete post-it notes by hovering over the top right hand corner of post-it notes.
+
 Have fun!
 
 ## Demo
