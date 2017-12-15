@@ -27,6 +27,10 @@ I thought it would be an interesting and fun project to come up with my own user
 
 Have fun!
 
+##Demo
+
+[Demo link](https://post-it-notes-board-react.herokuapp.com/)
+
 ## Todos
 1. To persist positional values for all existing post-it-notes in the DB instead of having being 'scattered' all around the board when refreshing the browser.
 2. Explore other interesting usecases for draggable react components.
