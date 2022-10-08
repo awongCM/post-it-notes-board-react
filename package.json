@@ -4,16 +4,19 @@
   "private": true,
   "dependencies": {
     "immutability-helper": "^2.6.0",
-    "prop-types": "^15.6.0",
-    "react": "^16.1.1",
-    "react-dom": "^16.1.1",
+    "prop-types": "^15.6.2",
+    "react": "^16.5.0",
+    "react-dom": "^16.5.0",
     "react-draggable": "^3.0.4",
-    "react-scripts": "1.0.17"
+    "react-scripts": "5.0.0",
+    "@snyk/protect": "latest"
   },
   "scripts": {
     "dev": "webpack-dev-server --open --config webpack.dev.js",
     "start": "npm run build && NODE_ENV=production node server.js",
-    "build": "webpack --config webpack.prod.js"
+    "build": "webpack --config webpack.prod.js",
+    "prepare": "yarn run snyk-protect",
+    "snyk-protect": "snyk-protect"
   },
   "devDependencies": {
     "axios": "^0.17.1",
@@ -33,5 +36,6 @@
     "webpack": "^3.9.1",
     "webpack-dev-server": "^2.9.5",
     "webpack-merge": "^4.1.1"
-  }
+  },
+  "snyk": true
 }
