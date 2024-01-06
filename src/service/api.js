@@ -1,6 +1,7 @@
 //NotesBoard API Server
 import axios from "axios";
 
+// TODO - refactor to use dot env setup
 //dev
 // export const BASE_URL_API = 'http://api.dev.local:5000/v1/notes';
 
