@@ -1,13 +1,13 @@
 //NotesBoard API Server
 import axios from "axios";
 
-// TODO - refactor to use dot env setup
-//dev
-// export const BASE_URL_API = 'http://api.dev.local:5000/v1/notes';
+// API URL configured via .env file (REACT_APP_API_URL) or environment variable
+// Falls back to localhost if not set
+export const BASE_URL_API = process.env.REACT_APP_API_URL || 'http://localhost:5000/v1/notes';
 
 //prod
-export const BASE_URL_API =
-  "https://post-it-notes-board-api.onrender.com/v1/notes";
+// export const BASE_URL_API =
+//   "https://post-it-notes-board-api.onrender.com/v1/notes";
 
 export default class NotesBoardAPI {
   static getRequest() {

@@ -43,6 +43,37 @@ Have fun!
 1. To persist positional values for all existing post-it-notes in the DB instead of having being 'scattered' all around the board when refreshing the browser.
 2. Explore other interesting usecases for draggable react components.
 
+## Configuring API URL (local vs Render)
+
+This project uses a `.env` file approach for environment configuration.
+
+### Local Development
+
+1. Copy the example env file:
+```bash
+cp .env.example .env
+```
+
+2. Edit `.env` and set your local API URL:
+```
+REACT_APP_API_URL=http://localhost:5000/v1/notes
+```
+
+3. Run the dev server (it will automatically load `.env`):
+```bash
+npm run dev
+```
+
+### Production (Render)
+
+Set the `REACT_APP_API_URL` environment variable in your Render service settings:
+- Go to your Render service dashboard
+- Navigate to Environment
+- Add: `REACT_APP_API_URL=https://post-it-notes-board-api.onrender.com/v1/notes`
+- Trigger a new deploy
+
+The `dotenv-webpack` plugin loads variables from `.env` during development and from system environment variables (like Render's) during production builds.
+
 ## Credits
 All credit goes to this wonderful [React/Rails](https://www.sitepoint.com/react-rails-5-1/) Tutorial.  I just took it to the next level. 🤗🤘🔥🌈
 
